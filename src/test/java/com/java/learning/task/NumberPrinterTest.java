@@ -8,19 +8,21 @@ import java.io.PrintStream;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
-
+import org.junit.runners.MethodSorters;
 import com.java.learning.task.exception.LearningTaskException;
-import com.learning.task.util.PropertyUtil;
 
 /**
  * Test class tests various scenarios of print method printing 1 to 10
  * 
- * @author sonali.m
+ * @author sonali
  *
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class NumberPrinterTest {
 
+	private static final String INPUT_NUMBER = "10";
 	private NumberPrinter numberPrinter = new NumberPrinter();
 	private final PrintStream standardOut = System.out;
 	private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
@@ -32,8 +34,7 @@ public class NumberPrinterTest {
 
 	@Test
 	public void testPrintNumbers_prints_1to10_successfully() throws LearningTaskException, IOException {
-		String printUptoMaxNumber = PropertyUtil.getInstance().getPropertyValue(PropertyUtil.MAX_INPUT_NUMBER);
-		numberPrinter.printNumbers(printUptoMaxNumber);
+		numberPrinter.printNumbers(INPUT_NUMBER);
 		for (int i = 1; i <= 10; i++) {
 			assertEquals(true, outputStreamCaptor.toString().trim().contains("Number :" + i));
 		}
