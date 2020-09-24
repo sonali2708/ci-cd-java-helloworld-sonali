@@ -32,7 +32,8 @@ public class NumberPrinterTest {
 
 	@Test
 	public void testPrintNumbers_prints_1to10_successfully() throws LearningTaskException, IOException {
-		numberPrinter.printNumbers(getMaxInputNo());
+		String printUptoMaxNumber = PropertyUtil.getInstance().getPropertyValue(PropertyUtil.MAX_INPUT_NUMBER);
+		numberPrinter.printNumbers(printUptoMaxNumber);
 		for (int i = 1; i <= 10; i++) {
 			assertEquals(true, outputStreamCaptor.toString().trim().contains("Number :" + i));
 		}
@@ -58,12 +59,6 @@ public class NumberPrinterTest {
 	@After
 	public void tearDown() {
 		System.setOut(standardOut);
-	}
-
-	private String getMaxInputNo() throws IOException {
-		// input max number =10 here
-		String printUptoMaxNumber = PropertyUtil.getInstance().getPropertyValue(PropertyUtil.MAX_INPUT_NUMBER);
-		return printUptoMaxNumber;
 	}
 
 }

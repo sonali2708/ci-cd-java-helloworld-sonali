@@ -14,6 +14,7 @@ import java.util.Properties;
 public final class PropertyUtil {
 	public static final String MAX_INPUT_NUMBER = "max.input.number";
 	private static final String CONFIG_PROPERTIES_PATH = "/config.properties";
+	public static final String TEST_VALUE = "another.test.value";
 	private static PropertyUtil prortyUtilInstance;
 
 	public static PropertyUtil getInstance() {
@@ -34,6 +35,6 @@ public final class PropertyUtil {
 		Properties prop = new Properties();
 		InputStream is = this.getClass().getResourceAsStream(CONFIG_PROPERTIES_PATH);
 		prop.load(is);
-		return prop.getProperty(key);
+		return (String)prop.get(key);
 	}
 }
