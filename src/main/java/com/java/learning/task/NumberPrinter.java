@@ -25,21 +25,18 @@ public class NumberPrinter {
 	 * @throws LearningTaskException
 	 */
 	public void printNumbers(String printUptoMaxNumber) throws LearningTaskException {
-		try {
-			LOG.info("Going to print numbers from 1 to " + printUptoMaxNumber);
-			if (StringUtils.isNotEmpty(printUptoMaxNumber) && Integer.valueOf(printUptoMaxNumber) == 10) {
-				for (int i = 1; i <= Integer.valueOf(printUptoMaxNumber); i++) {
-					System.out.println("Number :" + i);
-				}
-			} else {
-				if (LOG.isLoggable(Level.SEVERE))
-					LOG.severe("Input number is not provided or its value is not equal to 10:" + printUptoMaxNumber);
-				throw new LearningTaskException("Input number not provided");
-			}
 
-		} catch (Exception e) {
-			throw e;
+		LOG.info("Going to print numbers from 1 to " + printUptoMaxNumber);
+		if (StringUtils.isNotEmpty(printUptoMaxNumber) && Integer.valueOf(printUptoMaxNumber) == 10) {
+			for (int i = 1; i <= Integer.valueOf(printUptoMaxNumber); i++) {
+				System.out.println("Number :" + i);
+			}
+		} else {
+			if (LOG.isLoggable(Level.SEVERE))
+				LOG.severe("Input number is not provided or its value is not equal to 10:" + printUptoMaxNumber);
+			throw new LearningTaskException("Input number not provided");
 		}
+
 	}
 
 }
