@@ -29,6 +29,14 @@ public class PropertyUtilTest {
 	}
 	
 	@Test
+	public void testGetValue_finds_another_test_value_successfully() throws IOException
+	{
+		String value = PropertyUtil.getInstance().getPropertyValue(PropertyUtil.TEST_VALUE);
+		assertNotNull(value);
+		assertEquals("hello", value);
+	}
+	
+	@Test
 	public void testGetValue_returns_null_where_key_value_not_present_in_properties() throws IOException
 	{
 		String maxInputNumber = PropertyUtil.getInstance().getPropertyValue(TEST_KEY);
