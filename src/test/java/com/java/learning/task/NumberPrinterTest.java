@@ -43,7 +43,7 @@ public class NumberPrinterTest {
 		numberPrinter.printNumbers("14");
 	}
 
-	@Test(expected = IOException.class)
+	@Test(expected = Exception.class)
 	public void testPrintNumbersFails_when_input_number_provided_is_null() throws LearningTaskException {
 
 		numberPrinter.printNumbers(null);
