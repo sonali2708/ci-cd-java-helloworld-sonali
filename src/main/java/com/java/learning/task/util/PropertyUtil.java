@@ -40,9 +40,9 @@ public class PropertyUtil {
 	 * @throws IOException
 	 */
 	public Properties getProperties(String configFileName) throws IOException {
-		ClassLoader loader = Thread.currentThread().getContextClassLoader();
+		//ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		Properties props = new Properties();
-		InputStream resourceStream = loader.getResourceAsStream(configFileName);
+		InputStream resourceStream = PropertyUtil.class.getResourceAsStream(configFileName);
 		props.load(resourceStream);
 		return props;
 	}
