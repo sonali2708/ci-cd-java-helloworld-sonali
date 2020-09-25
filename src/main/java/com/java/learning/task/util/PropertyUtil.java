@@ -5,8 +5,9 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * This is a utility class having utility methods to fetch properties values from
- * config.properties file and find the individual propety value using the key as input
+ * This is a utility class having utility methods to fetch properties values
+ * from config.properties file and find the individual propety value using the
+ * key as input
  * 
  * @author sonali.m
  *
@@ -30,9 +31,10 @@ public class PropertyUtil {
 	protected Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException();
 	}
-    
+
 	/**
 	 * Gets all the properties using the property file name provided as input
+	 * 
 	 * @param configFileName
 	 * @return
 	 * @throws IOException
@@ -40,14 +42,14 @@ public class PropertyUtil {
 	public Properties getProperties(String configFileName) throws IOException {
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		Properties props = new Properties();
-		try (InputStream resourceStream = loader.getResourceAsStream(configFileName)) {
-			props.load(resourceStream);
-			return props;
-		}
+		InputStream resourceStream = loader.getResourceAsStream(configFileName);
+		props.load(resourceStream);
+		return props;
 	}
-    
+
 	/**
 	 * Gets the property value from the properties using the key provided as input
+	 * 
 	 * @param props
 	 * @param key
 	 * @return
