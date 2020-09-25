@@ -6,7 +6,7 @@ import java.util.Properties;
 
 /**
  * This is a utility class having utility methods to fetch properties values
- * from config.properties file and find the individual propety value using the
+ * from config.properties file and find the individual property value using the
  * key as input
  * 
  * @author sonali.m
@@ -41,7 +41,6 @@ public class PropertyUtil {
 	 * @throws IOException
 	 */
 	public Properties getProperties(String configFileName) throws IOException {
-		// ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		Properties props = new Properties();
 		InputStream resourceStream = getClass().getClassLoader().getResourceAsStream(configFileName);
 		props.load(resourceStream);
