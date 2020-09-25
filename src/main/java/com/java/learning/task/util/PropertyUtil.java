@@ -32,6 +32,7 @@ public class PropertyUtil {
 		throw new CloneNotSupportedException();
 	}
 
+
 	/**
 	 * Gets all the properties using the property file name provided as input
 	 * 
@@ -40,9 +41,9 @@ public class PropertyUtil {
 	 * @throws IOException
 	 */
 	public Properties getProperties(String configFileName) throws IOException {
-		//ClassLoader loader = Thread.currentThread().getContextClassLoader();
+		// ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		Properties props = new Properties();
-		InputStream resourceStream = PropertyUtil.class.getResourceAsStream(configFileName);
+		InputStream resourceStream = getClass().getClassLoader().getResourceAsStream(configFileName);
 		props.load(resourceStream);
 		return props;
 	}
